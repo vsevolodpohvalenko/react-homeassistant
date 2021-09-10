@@ -1,0 +1,49 @@
+.menuContainer{
+    bottom: 0;
+    z-index: 4;
+    position: fixed;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+    color: rgb(9,2,83);
+    height: 36pt;
+    box-shadow: 0 5pt 5pt -3pt rgba(59, 64, 69, 0.2), 0 3pt 14pt 2pt rgba(59, 64, 69, 0.12), 0 8pt 10pt 1pt rgba(59, 64, 69, 0.14);
+    background-color: white;
+}
+
+
+.mItems{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+}
+
+.title{
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.addButton{
+    position: absolute;
+    width: 76px!important;
+    height: 76px!important;
+    bottom: 10px;
+    left: calc(50% - 38px);
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.imageContainer img{
+    width: 28px;
+    height: 28px;
+}
+
+.notificationActive{
+    width: 12pt!important;
+    height: 15pt!important;
+    margin: auto;
+}

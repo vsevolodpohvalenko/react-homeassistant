@@ -1,0 +1,415 @@
+.arrowIcon {
+    position: absolute;
+    top: 15pt;
+    left: 20pt;
+    color: white;
+}
+
+.header {
+    background-color: rgb(46, 45, 134);
+    height: 200px;
+}
+
+.header h3 {
+    padding-top: 10pt;
+    padding-bottom: 8pt;
+    font-size: 18pt;
+    color: white;
+}
+
+.register {
+    position: absolute;
+    top: 65px;
+    border-radius: 16pt 16px 0 0;
+    height: 90vh;
+    background-color: white;
+    z-index: 2;
+}
+
+.cInput {
+    width: 250pt;
+    height: 40pt !important;
+    background-color: #eeeeee;
+    margin: 14pt 0;
+    border-radius: 4pt;
+    padding: 10pt;
+    border: none;
+    outline: none;
+}
+
+.cInput:focus{
+    border-bottom: 1px rgb(0, 239, 0) solid;
+}
+
+.cInput.active {
+    padding-top: 25pt;
+}
+
+.cInput::placeholder {
+    color: rgba(0, 0, 0, 0.38);
+
+}
+
+.isNotEmpty {
+    border-bottom: 1px black solid;
+}
+
+.isNotEmptyLast {
+    border-bottom: 2px rgb(0, 239, 0) solid!important;
+}
+
+.inputBlock {
+    position: relative;
+    max-width: 250pt;
+    margin: auto;
+}
+
+.registerSelect {
+    background-color: #eeeeee;
+    border: none !important;
+    margin: 14pt auto !important;
+}
+
+.color{
+    color: rgb(0, 152, 30)!important;
+}
+
+fieldset {
+    border: none !important;
+    border-bottom: 1px black solid !important;
+}
+
+.inputBlock label {
+    position: absolute;
+    top: 15pt;
+    left: 10pt;
+    font-size: 10pt;
+    z-index: 3;
+    display: none;
+
+}
+
+.inputBlock label.active {
+    display: block;
+}
+
+.inputBlock label.activeLast {
+    display: block;
+    color: rgb(0, 152, 30)
+}
+
+.step_next button{
+    margin-top: 21pt;
+    margin-bottom: 24pt;
+}
+
+.next {
+    width: 250pt;
+    height: 30pt;
+    border-radius: 18.5pt;
+    background-color: rgb(0, 234, 65) !important;
+    color: rgb(9, 2, 83);
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    font-size: 12pt;
+    border: none;
+    font-weight: 500;
+}
+
+.formContainer {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    display: grid;
+}
+
+.terms_container {
+    margin: 0 20pt;
+    text-align: left;
+    font-size: 14pt;
+
+}
+
+.terms_container,
+.terms_container h3 {
+    color: rgb(9, 2, 83);
+}
+
+.terms_container h3 {
+    font-size: 16pt;
+    margin-top: 16pt;
+    margin-bottom: 19pt;
+}
+
+.options {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100vw;
+    height: 100pt;
+}
+
+.options div button {
+    margin-top: 22pt;
+}
+
+.optCheck {
+    margin-top: 15pt;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.optCheck span {
+    margin-left: 9pt;
+    color: rgb(91, 102, 112);
+    font-size: 14pt;
+}
+
+.optCheck input {
+    width: 14pt;
+    height: 14pt;
+}
+
+.optCheck input[type="checkbox"] {
+
+}
+
+input.special {
+    appearance: none;
+}
+
+input.special:after {
+    content: '\2713';
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    line-height: 16pt;
+    font-size: 16pt;
+    color: white;
+    padding-left: 0.15rem;
+    border: 1px solid black;
+
+}
+
+input.special:checked:after {
+    content: '\2713';
+    background-color: rgb(0, 234, 65);
+    color: white;
+    position: absolute;
+    line-height: 16pt;
+    font-size: 16pt;
+    border: 1px solid white;
+    padding-left: 0.15rem;
+}
+
+.optButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.optButtons button {
+    width: 152pt;
+    margin: 0 12pt;
+    padding: 5pt;
+    color: rgb(9, 2, 83);
+    border-radius: 18.5pt;
+    border: 2px solid rgb(0, 234, 65);
+    background-color: #ffffff;
+    font-weight: 500;
+}
+
+.code input {
+    width: 30pt;
+    height: 40pt;
+    margin: 0 7pt;
+    border: none;
+    outline: none;
+    background-color: #eeeeee;
+    font-size: 48px;
+    text-align: center;
+    border-radius: 4pt;
+    margin-bottom: 5pt;
+}
+
+.code input.invalid {
+    border-bottom: 2px solid rgb(256, 25, 25);
+}
+
+.code {
+    display: flex;
+    justify-content: center;
+}
+
+.code_container {
+    color: rgb(9, 2, 83);
+    margin: 16pt;
+}
+
+.code_container div h3 {
+    width: 251pt;
+    margin: auto;
+}
+
+.code_container div h3 {
+    font-size: 14pt;
+    margin-top: 14pt;
+    color: rgb(9, 2, 83);
+    text-align: left;
+}
+
+.hint {
+    font-size: 14px;
+    letter-spacing: 0.1pt;
+    line-height: 24pt;
+    font-weight: 500;
+    text-align: left;
+}
+
+.validation {
+    color: rgb(246, 25, 25);
+
+}
+
+.links {
+    margin-top: 20pt;
+}
+
+.links small {
+    font-size: 10pt;
+}
+
+.links span {
+    font-size: 11pt;
+    font-weight: 500;
+}
+
+.codeOptions {
+    height: 60pt;
+}
+
+.rightLast {
+    border-bottom: 2px solid rgb(0, 234, 65) !important;
+}
+
+.pin input{
+    width: 46pt;
+    height: 46pt;
+    background-color: #eeeeee;
+    border: none;
+    outline: none;
+    border-radius: 4pt;
+    margin: 0 8pt;
+    margin-top: 39pt;
+    text-align: center;
+    font-size: 36pt;
+}
+
+.pin input.activeX,
+.code input.activeX{
+    border-bottom: 1px solid black;
+}
+
+
+
+.pinButtons{
+    position: absolute;
+    bottom: 10pt;
+    left: calc(50% - 125pt);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 16pt;
+    justify-content: center;
+}
+
+.pinButtons button{
+    background-color: white;
+    border: 2px solid rgb(0, 234, 65);
+    border-radius: 18.5pt;
+    width: 250pt;
+    height: 30pt;
+}
+
+button:disabled{
+    border: none!important;
+    background-color: #eeeeee!important;
+}
+
+input:focus{
+    border-bottom: 2px solid rgb(0, 234, 65)!important;
+}
+
+.adaptiveButtons{
+    position: absolute;
+    bottom: 10pt;
+    left: calc(50% - 125pt);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 16pt;
+    justify-content: center;
+}
+
+.adaptiveButtons button{
+    background-color: white;
+    border: 2px solid rgb(0, 234, 65);
+    border-radius: 18.5pt;
+    width: 250pt;
+    height: 30pt;
+}
+
+.second_step{
+    position: absolute;
+    bottom: 10pt;
+    left: calc(50% - 125pt);
+}
+
+.verificationCodeContainer{
+    margin: 24pt;
+}
+
+.disabled{
+    background-color: rgb(235, 235, 236)!important;
+    color: rgba(0, 0, 0, 0.38)!important;
+    border: none!important;
+}
+
+@media (max-height: 550px) {
+    .adaptiveButtons{
+        display: flex;
+        bottom: 15pt;
+        justify-content: center;
+        left: calc(50% - 147pt);
+    }
+
+    .adaptiveButtons button{
+        width: 125pt;
+        margin: 0 12pt;
+        padding: 5pt;
+        color: rgb(9, 2, 83);
+        border-radius: 18.5pt;
+        border: 2px solid rgb(0, 234, 65);
+        background-color: #ffffff;
+        font-weight: 500;
+    }
+}
+
+@media (max-height: 350px) {
+    .adaptiveButtons{
+        bottom: -10pt;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .hint {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 361px) {
+    .pin input{
+        width: 40pt;
+        height: 40pt;
+
+    }
+}

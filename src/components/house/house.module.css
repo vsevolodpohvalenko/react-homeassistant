@@ -1,0 +1,355 @@
+.houseHeaderContainer{
+    background-image: url("../../assets/house.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 280px;
+    position: relative;
+    color: rgb(9,2,83);
+}
+
+.houseHeader{
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    padding: 16px;
+}
+
+.houseHeaderContainer::before{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(
+            360deg
+            , #ffffff, transparent, transparent, transparent, transparent, transparent);
+    pointer-events: none;
+
+}
+
+h2{
+    color: rgb(9,2,83);
+    font-weight: 500;
+}
+
+.houseToggle div img{
+    width: 24pt;
+    height: 24pt;
+    vertical-align: middle;
+}
+
+.create{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.houseToggle div.active img{
+    padding-bottom: 2pt;
+    border-bottom: 2px solid #00ef00;
+}
+
+
+.houseToggle div.active{
+    border-radius: 28pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+    background-color: white;
+}
+
+.houseToggle{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    background: white;
+    border-radius: 28pt;
+    height: 48px;
+    line-height: 48px;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07)
+}
+
+.overview{
+    text-align: left;
+}
+
+.overview > h2{
+    margin: 16pt;
+}
+
+.security{
+    margin: 24pt;
+    border-radius: 16pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+    text-align: left;
+}
+
+.securityHeader{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 8pt;
+    padding-top: 10pt;
+    line-height: 33pt;
+}
+
+.headerContent{
+    text-align: left;
+}
+
+.securityBody{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+p{
+    margin: 0;
+}
+
+.doors{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    line-height: 80px;
+}
+
+.securityIcon{
+    padding: 10pt 14pt 14pt 14pt;
+}
+
+.doorsTitle{
+    transform: translate(0, 15px);
+    font-size: 12px;
+    color: rgb(75, 75, 151);
+}
+
+.openedDoors{
+    font-size: 40pt;
+    color: rgb(9,2,83);
+}
+
+.totalDoors{
+    font-size: 16.6pt;
+    color: rgb(9,2,83);
+}
+
+.energyCostHeader{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    padding-top: 10pt;
+    text-align: left;
+}
+
+.energyCostContainer{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    width: 80%;
+    margin: auto;
+}
+
+.energyCost{
+    margin: 24pt;
+    border-radius: 16pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+    color: rgb(9,2,83);
+    text-align: left;
+}
+
+.energyCostWarning{
+    background-color: rgb(239,240,255)!important;
+    border-radius: 0 0 16pt 16pt!important;
+    padding: 8pt;
+}
+
+.energyCostWarning div,
+.energyCostWarning img
+{
+    background-color: rgb(239,240,255)!important;
+}
+
+.energyCostWarning div{
+    display: grid;
+    grid-column-gap: 4pt;
+    grid-template-columns: auto 1fr;
+    width: 87%;
+    margin: auto;
+}
+
+.energyCostWarning div p{
+    font-size: 12px;
+    color: rgb(75, 75, 151);
+    line-height: 18px;
+}
+
+.energyCostWarning div div{
+    line-height: 44px;
+}
+
+.successIcon{
+    line-height: 27px;
+    text-align: left;
+
+}
+
+.cost{
+    font-size: 48px;
+    line-height: 75px;
+}
+
+.currency{
+    margin-left: 5px;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.energyIcon{
+    line-height: 75px;
+}
+
+.forward_container{
+    line-height: 27px;
+}
+
+.period{
+    font-weight: 400;
+    color: rgb(75,75,151)
+}
+
+.bill{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 24pt;
+    border-radius: 16pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+}
+
+.billImageContainer img{
+    height: 203px;
+}
+
+.billContent{
+    text-align: left!important;
+}
+
+.billContent h2{
+    margin: 12pt;
+    color: rgb(33,30,115);
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.billContent p{
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0.44px;
+    color: rgb(33,30,115)!important;
+    margin: 12pt;
+}
+
+.equipmentBlock{
+    margin: 24pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+    border-radius: 16pt;
+}
+
+.equipmentBorder{
+    width: 1px;
+    background-color: rgb(147,161,176);
+    height: 100%;
+}
+
+.equipmentHeader{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    padding-top: 10pt;
+    text-align: left;
+}
+
+
+.equipmentContent{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    padding: 16pt 0;
+    text-align: initial;
+}
+
+.equipments{
+    text-align: left;
+    margin: 24pt;
+}
+
+.equipments h3{
+    margin-right: 12px;
+}
+
+.equipments small{
+    color: rgb(75,75,151)
+}
+
+.equipments h3{
+    display: inline;
+}
+
+.contentItem{
+    text-align: initial;
+    justify-content: center;
+    display: inherit;
+    color: rgb(9,2,83);
+    font-weight: 500;
+}
+
+small{
+    color: rgb(75,75,151)
+}
+
+.doorData{
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 16pt;
+    width: 80%;
+    margin: auto;
+    padding: 18pt;
+}
+
+.doorStatus{
+    line-height: 45px;
+    font-size: 42px;
+    color: rgb(9,2,83);
+}
+
+.doorStatusIcon{
+    line-height: 81px;
+}
+.doorStatusIcon img{
+    width: 55px;
+}
+
+.doorContainer{
+    margin: 24pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
+    border-radius: 16pt;
+}
+
+@media (max-width: 361px) {
+    .doorContainer{
+        margin: 16pt;
+    }
+    .equipments{
+        text-align: left;
+        margin: 16pt;
+    }
+    .equipmentBlock{
+        margin: 16pt;
+    }
+    .bill{
+        margin: 16pt;
+    }
+    .energyCost{
+        margin: 16pt;
+    }
+    .security{
+        margin: 16pt;
+    }
+}

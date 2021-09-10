@@ -1,10 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .App {
   text-align: center;
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+img{
+  vertical-align: middle;
+}
+
+h3{
+  color: rgb(9,2,83);
+  margin: 0!important;
+
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.h2WithoutMargin{
+  margin: 0;
+}
+
+.whiteBackGround{
+  background-color: white;
+}
+
+.whiteColor{
+  color: white!important;
+}
+
+.whiteColor h2{
+  color: white;
+}
+
+.container{
+  margin: 24pt;
+  border-radius: 16pt;
+  box-shadow: 0 1pt 3pt 0 rgba(0, 0, 0, 0.1), 0 2pt 1pt -1pt rgba(0, 0, 0, 0.06), 0 1pt 1pt 0 rgba(0, 0, 0, 0.07);
 }
 
 @media (prefers-reduced-motion: no-preference) {

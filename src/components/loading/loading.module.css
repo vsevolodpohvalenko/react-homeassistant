@@ -1,0 +1,44 @@
+.loading{
+    background:  linear-gradient(rgb(46, 45, 134), rgb(41, 40, 131)), url("../../assets/bluePattern01_2021-08-23/bluePattern01@3x.jpg");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.loading img{
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.loadingLine{
+    height: 10px;
+    background-color: #00ef00;
+    animation: progress 10s infinite linear;
+}
+
+.progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+
+@keyframes progress{
+    0%{
+        width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+}

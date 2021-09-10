@@ -1,0 +1,71 @@
+.header {
+    background-color: rgb(46, 45, 134);
+    height: 200px;
+    color: white;
+}
+
+.muiIcon{
+    position: relative;
+}
+
+.muiIcon > svg{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+.headerContentTriple{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    transform: translateY(-50%);
+    line-height: 33px;
+}
+
+.headerContentDouble{
+    display: grid;
+    grid-template-columns: 1fr 4fr ;
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    transform: translateY(-50%);
+    line-height: 33px;
+}
+
+.header h3 {
+    font-size: 18pt;
+    color: white;
+}
+
+.arrowIcon {
+
+}
+
+.content {
+    position: absolute;
+    top: 70px;
+    min-height: 90%;
+    border-radius: 16pt 16px 0 0;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+}
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 410px) {
+    .header h3 {
+        font-size: 16pt;
+    }
+}
+
+@media (max-width: 360px) {
+    .header h3 {
+        font-size: 14pt;
+    }
+}

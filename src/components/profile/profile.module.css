@@ -1,0 +1,79 @@
+
+.title{
+    font-size: 18pt;
+    text-align: left;
+    margin: 20pt;
+}
+
+.dataContainer{
+    margin: 24pt;
+    text-align: left;
+}
+
+.dataContainer div h3{
+    margin: 0;
+    font-size: 9pt;
+    line-height: 16pt;
+    text-transform: uppercase;
+    color: rgb(75, 75, 151);
+    font-weight: 400;
+    letter-spacing: 1.5px;
+}
+
+.dataContainer > div{
+    margin: 24px 0;
+}
+
+.dataContainer div p{
+    margin: 0;
+    font-size: 19px;
+    line-height: 24px;
+    color: rgb(9, 2, 83)
+}
+
+.changeIconContainer{
+    text-align: right;
+}
+
+.changeable{
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    line-height: 45px;
+}
+
+.pending{
+    color: rgb(246, 25, 25)!important;
+}
+
+.hidden{
+    display: none!important;
+}
+
+.verify{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    line-height: 36px;
+    margin: 0 24pt;
+    text-align: left;
+}
+
+.verify h3{
+    font-size: 11pt;
+    font-weight: 400;
+    color: rgb(9, 2, 83);
+}
+
+@media (max-width: 361px) {
+
+    .title{
+        margin: 12pt;
+    }
+
+    .dataContainer{
+        margin: 16pt;
+    }
+
+    .verify{
+        margin: 0 16pt;
+    }
+}

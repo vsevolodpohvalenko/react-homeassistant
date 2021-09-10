@@ -1,0 +1,10 @@
+<svg width="103" height="36" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <rect stroke="#00EA41" x=".5" y=".5" width="102" height="35" rx="17.5"/>
+        <text font-family="Roboto-Medium, Roboto" font-size="14" font-weight="400" letter-spacing=".5" fill="#090253">
+                    <tspan x="38" y="23">VERIFY</tspan>
+                </text>
+        <path d="M12 9h18v18H12z"/>
+        <path d="m21 9.75-6.75 3v4.5c0 4.163 2.88 8.055 6.75 9 3.87-.945 6.75-4.837 6.75-9v-4.5l-6.75-3zm5.25 7.5c0 3.39-2.235 6.517-5.25 7.447-3.015-.93-5.25-4.057-5.25-7.447v-3.525L21 11.393l5.25 2.332v3.525zm-8.692.443L16.5 18.75l3 3 6-6-1.057-1.065-4.943 4.942-1.942-1.934z" fill="#090253" fill-rule="nonzero"/>
+    </g>
+</svg>

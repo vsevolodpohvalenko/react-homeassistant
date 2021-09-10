@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="84" viewBox="0 0 80 84">
+    <defs>
+        <filter id="ehch1y6sbb" width="112.3%" height="275%" x="-6.1%" y="-87.5%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="2.5"/>
+            <feOffset dy="2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0655321241 0"/>
+        </filter>
+        <rect id="t3fs47ya4a" width="57" height="4" x="0" y="0" rx="2"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g>
+                            <path d="M0 0H80V80H0z" transform="translate(-59.000000, -452.000000) translate(24.000000, 280.000000) translate(0.000000, 112.000000) translate(35.000000, 60.000000)"/>
+                            <path fill="#090253" fill-rule="nonzero" d="M69.997 35.739V16.402c0-.526-.345-.992-.854-1.154l-26.68-8.521c-.27-.087-.55-.077-.797.012-.25-.088-.528-.098-.798-.012l-26.68 8.52c-.508.163-.853.628-.853 1.155l.002 19.29c-.01.283-.76 28.333 27.69 37.58.126.041.258.061.39.061h.5c.132 0 .264-.02.389-.062 28.45-9.246 27.7-37.297 27.69-37.532zm-28.28 35.167h-.101C15.143 62.186 15.764 36.86 15.804 35.74V17.283L41.63 9.034c.013-.003.024-.008.036-.012.011.004.023.009.035.012l25.827 8.25.001 18.501c.01.263.71 26.38-25.812 35.121z" transform="translate(-59.000000, -452.000000) translate(24.000000, 280.000000) translate(0.000000, 112.000000) translate(35.000000, 60.000000)"/>
+                            <path fill="#F80" fill-rule="nonzero" d="M62.29 19.85L42.268 13.23c-.173-.057-.353-.07-.52-.057-.167-.013-.344 0-.52.057L21.21 19.85c-.501.167-.84.629-.84 1.15l.001 15.067c.007.217 1.008 21.77 20.933 29.356.143.054.295.081.445.081.15 0 .303-.027.446-.081C62.12 57.838 63.122 36.284 63.13 36.025V21c0-.52-.339-.983-.84-1.15z" transform="translate(-59.000000, -452.000000) translate(24.000000, 280.000000) translate(0.000000, 112.000000) translate(35.000000, 60.000000)"/>
+                            <path fill="#FF9400" fill-rule="nonzero" d="M62.29 19.85L42.268 13.23c-.173-.057-.353-.07-.52-.057-.167-.013-.344 0-.52.057L21.21 19.85c-.501.167-.84.629-.84 1.15l.001 15.067c.007.217 1.008 21.77 20.933 29.356.143.054.295.081.445.081.15 0 .303-.027.446-.081C62.12 57.838 63.122 36.284 63.13 36.025V21c0-.52-.339-.983-.84-1.15zm-20.542-4.233l18.913 6.255.001 14.11c-.008.199-.958 19.857-18.914 27.006l-.012-.856c-.412-28.117-.408-43.622.012-46.515z" transform="translate(-59.000000, -452.000000) translate(24.000000, 280.000000) translate(0.000000, 112.000000) translate(35.000000, 60.000000)"/>
+                        </g>
+                        <g transform="translate(-59.000000, -452.000000) translate(24.000000, 280.000000) translate(0.000000, 112.000000) translate(35.000000, 60.000000) translate(13.000000, 80.000000)">
+                            <g>
+                                <use fill="#F1F3F5" xlink:href="#t3fs47ya4a"/>
+                                <use fill="#000" filter="url(#ehch1y6sbb)" xlink:href="#t3fs47ya4a"/>
+                            </g>
+                            <rect width="29" height="4" fill="#FF9400" rx="2"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

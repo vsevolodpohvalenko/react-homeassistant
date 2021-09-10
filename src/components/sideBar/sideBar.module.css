@@ -1,0 +1,68 @@
+
+.side{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    transform: translate(-100%);
+    transition: .5s ;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 130%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.side.active{
+    transition: .5s ;
+    transform: translate(0);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sideBarContainer{
+    width: 80vw;
+    background-color: white;
+}
+
+
+
+.logo{
+    background-image: linear-gradient(rgb(46, 45, 134), rgb(41, 40, 131)), url("../../assets/bluePattern01_2021-08-23/bluePattern01.jpg");
+    height: 20vh;
+    position: relative;
+
+}
+
+.logo img{
+    height: 30pt;
+    position: absolute;
+    left: 20px;
+    bottom: calc(45% - 15pt);
+}
+
+.sideBarBlock{
+    display: grid;
+    text-align: left;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto;
+    height: 56px;
+    line-height: 56px;
+    color: rgb(33, 30, 115);
+}
+
+.sideBarBlock h3{
+    color: rgb(33, 30, 115);
+    font-size: 14px;
+    margin: 0;
+}
+
+
+.iconContainer img{
+    width: 24px;
+    height: 24px;
+    margin: 12pt;
+}
+
+.forward_container{
+    text-align: end;
+    margin-right: 22px;
+}

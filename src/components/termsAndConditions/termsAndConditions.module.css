@@ -1,0 +1,13 @@
+.terms{
+    white-space: pre-line;
+    font-size: 11pt;
+    margin: 24pt;
+    text-align: left;
+    color: rgb(33, 30, 115);
+}
+
+@media (max-width: 361px) {
+    .terms{
+        margin: 16pt;
+    }
+}

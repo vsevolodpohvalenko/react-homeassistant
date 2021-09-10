@@ -1,0 +1,28 @@
+.bedRoomContent{
+    background-color: rgb(215, 207, 197);
+    min-height: 100vh;
+    display: inline-block;
+}
+
+.bedRoomContainer{
+    background-image: url("../../assets/bedRoom.jpg");
+    background-size: cover;
+}
+
+.bedRoomToggle{
+    grid-template-columns: 1fr 1fr;
+}
+
+.bedRoomContainer::before{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(
+            360deg
+            , rgb(215, 207, 197), rgba(215, 207, 197, .5), rgba(215, 207, 197, .2), transparent, transparent, transparent, transparent);
+    pointer-events: none;
+
+}

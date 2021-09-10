@@ -1,0 +1,40 @@
+.weekDays{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.monthDays{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    overflow: hidden;
+}
+
+.monthDays div{
+    color: rgb(9, 2, 83);
+    padding: 4pt 8pt;
+    border-radius: 0;
+}
+
+.activeDay{
+    background-color: #00ef00;
+    border-radius: 20pt!important;
+    color: rgb(9, 2, 83)
+}
+
+.activeDayStepTwo{
+    background-color: rgb(201, 255, 207);
+    border-radius: 20pt!important;
+    color: rgb(9, 2, 83)
+}
+
+.headerDays{
+    background-color: rgb(13, 255, 106);
+    color: rgb(9, 2, 83)
+}
+
+.headerDays h2{
+    color: rgb(9, 2, 83)
+}

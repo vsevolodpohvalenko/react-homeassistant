@@ -1,0 +1,48 @@
+
+.changeDetailsContainer{
+    text-align: left;
+
+}
+
+.changeDetailsContainer h3{
+    font-size: 18px;
+    margin: 24px!important;
+    color: rgb(9, 2, 83);
+}
+
+.customButton{
+    position: absolute;
+    bottom: 16pt;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.customButton button{
+
+    border-radius: 18.5pt;
+    border: none;
+    padding: 10px;
+    width: calc(100vw - 48pt);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(146, 146, 146);
+}
+
+.customButton.active button{
+    background-color: rgb(0, 234, 65);
+    color: rgb(9, 2, 83);
+}
+
+.inputBlock{
+    margin: 24px;
+    width: auto;
+}
+
+.inputBlock input{
+    font-size: 16px;
+    width: calc(100vw - 48pt);
+}
+
+.pitInput{
+    margin-top: 0!important;
+}

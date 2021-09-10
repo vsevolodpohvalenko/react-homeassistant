@@ -1,0 +1,319 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    }
+
+.greetings{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 2fr 1fr;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    text-align: initial;
+}
+
+.greetings small{
+    line-height: 44px;
+    font-size: 14px;
+}
+
+.homeContainer{
+    padding: 0 16px;
+}
+
+.weather{
+    grid-area: weather;
+}
+.temperature{
+    line-height: 44px;
+    grid-area: temperature;
+}
+.weather_text{
+    grid-area: weather_text;
+    font-size: 16px;
+    font-weight: 600;
+}
+.location{
+    grid-area: location;
+    font-size: 13px;
+    height: 14pt;
+    width: auto;
+}
+.data_container{
+    margin: 0 32px;
+    margin-bottom: 40px;
+    text-align: left;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    "temperature weather"
+    "weather_text weather"
+    "location location";
+}
+
+.home_image{
+    width: 36px;
+    height: 36px;
+}
+
+.cost_image_container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cost_image{
+    margin-top: 20pt;
+}
+
+.house{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+
+}
+
+.house_up{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+}
+
+.house_up div{
+    line-height: 48px;
+}
+
+.house_title{
+    display: flex;
+    justify-content: left;
+}
+
+.period{
+    text-align: left;
+}
+
+.period small{
+    font-size: 14px;
+    letter-spacing: 0.3pt;
+    color: rgb(9,2,83);
+}
+
+.rise{
+    width: 18px;
+    height: 18px;
+    margin: 4pt;
+}
+
+.cost{
+    display: table;
+    justify-content: flex-start;
+}
+
+.cost span{
+    font-size: 36px;
+}
+
+.cost_container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+
+.cost_title{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    color: rgb(9,2,83);
+    margin-bottom: -10px;
+}
+
+.line{
+    width: 100%;
+    margin: 10px auto;
+    height: 2pt;
+    border-radius: 1px;
+    background-color: #dedede;
+}
+
+.room_block{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    text-align: initial;
+    margin: 16px 0;
+    border-radius: 16pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0,0,0,0.1), 0 2pt 1pt -1pt rgba(0,0,0,0.06), 0 1pt 1pt 0 rgba(0,0,0,0.07);
+    padding: 12pt;
+}
+
+.forward_container{
+    text-align: end;
+    line-height: 48px;
+}
+
+.title{
+    vertical-align: middle;
+    line-height: 48px;
+    font-size: 10pt;
+}
+
+.title h2{
+    color: rgb(9,2,83) !important;
+}
+
+
+.temperature{
+    font-size: 48px;
+    font-weight: 500;
+    color: rgb(9,2,83) !important;
+}
+
+.house_container{
+    box-shadow: 0 1pt 3pt 0 rgba(0,0,0,0.1), 0 2pt 1pt -1pt rgba(0,0,0,0.06), 0 1pt 1pt 0 rgba(0,0,0,0.07);
+    padding: 12pt;
+    margin: 16px 0;
+    border-radius: 16pt;
+}
+
+.room_icon{
+    line-height: 48px;
+
+}
+
+.container{
+    max-width: 500px;
+    margin: auto;
+}
+
+.room_icon img{
+    width: 36px;
+    height: 36px;
+}
+
+.helper{
+    width: 100%;
+    height: 100px;
+}
+
+.indicators{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 12pt;
+    text-align: left;
+}
+
+.indicators > div{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.indicatorItem div small{
+    font-size: 10px;
+}
+
+.indicators div span{
+    font-size: 28px;
+    color: rgb(9,2,83)
+}
+
+.indicatorIcon{
+    line-height: 50px;
+}
+
+.indicatorContent{
+    margin-top: -8pt;
+}
+
+.indicatorIcon img{
+    vertical-align: bottom;
+}
+
+.indicatorsUpdated{
+    margin-top: 5pt;
+    color: rgb(75, 75, 151)!important;
+    font-size: 16px;
+    text-align: left;
+}
+
+@media (max-width: 405px) {
+
+    .temperature{
+        font-size: 48px;
+    }
+
+    .greetings small{
+        font-size: 12px;
+    }
+
+    .greetings h1{
+        font-size: 24px;
+    }
+
+    .house_title div h2,
+    .title h2
+    {
+        font-size: 18px;
+    }
+
+    .cost span{
+        font-size: 32px;
+    }
+    .room_icon{
+        text-align: initial;
+    }
+    .period small{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 375px) {
+    .temperature{
+        font-size: 42px;
+    }
+    .cost span{
+        font-size: 28px;
+    }
+    .home_image{
+        width: 28px;
+        height: 28px;
+    }
+    .period small{
+        font-size: 10px;
+    }
+    .cost_title small{
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 345px) {
+    .temperature{
+        font-size: 36px;
+    }
+
+    .greetings h1{
+        font-size: 18px;
+    }
+
+    .house_title div h2,
+    .title h2
+    {
+        font-size: 12px;
+    }
+
+    .cost span{
+        font-size: 20px;
+    }
+
+    .period small{
+        font-size: 9px;
+    }
+
+    .cost_title small{
+        font-size: 10px;
+    }
+    .cost_title{
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+}

@@ -1,0 +1,22 @@
+.MuiStepIcon-root.MuiStepIcon-active,
+.MuiStepIcon-root.MuiStepIcon-completed{
+    color: rgb(0, 234, 65)!important;
+}
+.MuiTypography-body2{
+    font-size: 12px!important;
+    color: rgb(9, 2, 83)!important;
+}
+.MuiStepper-alternativeLabel{
+    border-radius: 16pt 16pt 0 0 ;
+}
+.MuiInput-underline:before{
+    display: none!important;
+}
+
+.MuiInput-underline:after{
+    border-bottom: none!important;
+}
+
+.MuiAutocomplete-inputRoot .MuiAutocomplete-input{
+    border: none!important;
+}

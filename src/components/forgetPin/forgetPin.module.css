@@ -1,0 +1,77 @@
+.container {
+    color: rgb(9, 2, 83)
+}
+
+.container div h3 {
+    width: 251pt;
+    margin: auto;
+}
+
+.container div h3 {
+    font-size: 14pt;
+    margin-top: 14pt;
+    color: rgb(9, 2, 83);
+    text-align: left;
+}
+
+.inputBlock {
+    position: relative;
+    max-width: 250pt;
+    margin: auto;
+}
+
+.inputBlock label {
+    position: absolute;
+    top: 15pt;
+    left: 10pt;
+    font-size: 10pt;
+    z-index: 3;
+    display: none;
+}
+
+.inputBlock label.active {
+    display: block;
+}
+
+.inputBlock label.activeLast {
+    display: block;
+    color: rgb(0, 152, 30)
+}
+
+
+.cInput {
+    width: 250pt;
+    height: 40pt !important;
+    background-color: #eeeeee;
+    margin: 14pt 0;
+    border-radius: 4pt;
+    padding: 10pt
+}
+
+.cInput.active {
+    padding-top: 25pt;
+}
+
+.cInput::placeholder {
+    color: rgba(0, 0, 0, 0.38);
+
+}
+
+.next {
+    width: 250pt;
+    height: 30pt;
+    border-radius: 18.5pt;
+    background-color: rgb(0, 234, 65) !important;
+    color: rgb(9, 2, 83);
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    font-size: 12pt;
+    border: none;
+    font-weight: 500;
+}
+
+.button_container{
+    position: absolute;
+    bottom: 20pt;
+    left: calc(50% - 125pt);
+}
