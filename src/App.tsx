@@ -28,6 +28,15 @@ const Login = React.lazy(() => import('./components/login/login'))
 const Home = React.lazy(() => import('./components/home/home'))
 
 function App() {
+    if (!localStorage.getItem("userData")){
+        console.log("x")
+        localStorage.setItem("userData", JSON.stringify({
+            email_address: "c.alberdin@gmail.com",
+            name: "Christopher",
+            phone_number: 51234567,
+            surname: "Alberdin"}))
+    }
+
     return (
         <div className="App">
             <BrowserRouter>
