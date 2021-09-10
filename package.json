@@ -2,6 +2,7 @@
   "name": "ikonect",
   "version": "0.1.0",
   "private": true,
+  "start_url": "/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -19,6 +20,7 @@
     "antd": "^4.16.11",
     "apexcharts": "^3.28.1",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
     "heroku": "^7.59.0",
     "react": "^17.0.2",
     "react-apexcharts": "^1.3.9",
@@ -33,7 +35,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
