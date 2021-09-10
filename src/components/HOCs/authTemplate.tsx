@@ -11,6 +11,7 @@ export const AuthTemplate = (props: any) => {
     const handleBack = () => {
         history.push(props.path)
     }
+    // dcsdcd
     return <div>
         <div className={s.header}>
             <div className={[s.headerContentTriple ].join(" ")}>
