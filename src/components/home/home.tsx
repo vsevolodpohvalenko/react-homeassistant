@@ -1,6 +1,4 @@
 import s from "./home.module.css";
-import st from "../HOCs/authTemplate.module.css"
-import MenuIcon from '@material-ui/icons/Menu';
 import rain from '../../assets/rain.svg'
 import forward from '../../assets/iconsIcoForward.svg'
 import livingRoom from '../../assets/iconsIcoLivingroomColored.svg'
@@ -9,9 +7,7 @@ import home from '../../assets/iconsIcoHouseColor.svg'
 import drop from '../../assets/drop.jpg'
 import energy from '../../assets/iconsIcoEnergyColored.svg'
 import rise from '../../assets/iconsIcoChangeRise.svg'
-import {Menu} from "../menu/menu";
 import {useEffect, useState} from "react";
-import {Redirect, useHistory} from "react-router-dom";
 import {actions} from "../../store/reducers/WeatherReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../store/store";
@@ -19,12 +15,10 @@ import {GeneralTemplate} from "../HOCs/generalTemplate";
 import temperatureIcon from '../../assets/iconsIcoTemperature.svg'
 import humidityIcon from "../../assets/iconsIcoHumidity.svg"
 import lightIcon from "../../assets/lightIcon.svg"
-import iconStatusSuccess from "../../assets/iconsIcoCardStatusSucess.svg";
-import openClose from "../../assets/iconsIcoOpenclose.svg";
 import axios from "axios";
-import {months} from "../calendarModel/calendarModel";
+import {Redirect, useHistory} from "react-router-dom";
 
-export const ws = new WebSocket('ws://ec2-35-158-128-11.eu-central-1.compute.amazonaws.com/api/websocket');
+export const ws = new WebSocket('wss://iconekt-api.idin.tech/api/websocket');
 const today = new Date();
 
 const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
@@ -39,7 +33,7 @@ const Home = () => {
     const [expandedMasterBedRoom, setExpandedMasterBed] = useState(false)
 
     if (localStorage.getItem("conf")){
-        axios.post("https://django-auth-service.herokuapp.com/api/core-config", {access_token : JSON.parse(localStorage.getItem("hassToken") as string).access_token})
+        axios.post("https://django-auth-service.herokuapp.com/api/core-config", {access_token : JSON.parse(localStorage.getItem("hassToken") as string)?.access_token})
     }
 
     const RoomBlock = (props: { trigger: any, name: string, icon: any, setter: (value: boolean) => void, path: string }) =>
@@ -181,7 +175,7 @@ const Home = () => {
     }
 
 
-    return <GeneralTemplate>
+    return !localStorage.getItem("hassToken") ? <Redirect to={"/login"}/> : <GeneralTemplate>
         <div className={s.container}>
 
             <div className={[s.homeContainer].join(" ")}>
@@ -189,9 +183,9 @@ const Home = () => {
                     <h1>Hello { JSON.parse(localStorage.getItem("userData") as string)[0] || "Christopher"}!</h1><small>{String(today.getDate()).padStart(2, '0')} {monthNames[(today.getMonth())]} {today.getFullYear()}</small>
                 </div>
                 <div className={s.data_container}>
-                    <div className={s.temperature}>{String(weather?.attributes?.temperature).slice(0, 2) || 27}°C</div>
+                    <div className={s.temperature}>{weather?.attributes ? String(weather?.attributes.temperature).slice(0, 2) : 27}°C</div>
                     <div className={s.weather}><img alt={"weather_icon"} src={rain}/></div>
-                    <h3 className={s.weather_text}>{WeatherTitle(weather?.state || "NA")}</h3>
+                    <h3 className={s.weather_text}>{WeatherTitle(weather?.state || "Rainy")}</h3>
                     <small className={s.location}>Rose Hill, Mauritius, Planes Wilhelm's</small>
                 </div>
                 {house ? <div className={s.house_container}>

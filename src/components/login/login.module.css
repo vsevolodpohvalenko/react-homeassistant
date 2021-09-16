@@ -101,6 +101,11 @@
     transform: translate(-50%);
 }
 
+.registerLink{
+    color: rgb(9, 2, 83)!important;
+    display: flex;
+}
+
 .logo_container{
     position: relative;
     height: 25vh;

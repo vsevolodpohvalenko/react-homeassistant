@@ -1,21 +1,21 @@
 import {instance} from "./api_config";
 
-const hassUrl = 'http://ec2-35-158-128-11.eu-central-1.compute.amazonaws.com/'
+const hassUrl = 'https://iconekt-api.idin.tech/'
 
 
-export const login_flow = () => {
-    debugger
-    return instance.post('api/login/', {
-        "client_id": hassUrl,
-        "handler": ["homeassistant", null],
-        "redirect_uri": `${hassUrl}/?auth_callback=1`
-    })
-}
+// export const login_flow = () => {
+//     debugger
+//     return instance.post('api/login/', {
+//         "client_id": hassUrl,
+//         "handler": ["homeassistant", null],
+//         "redirect_uri": `${hassUrl}/?auth_callback=1`
+//     })
+// }
 
 export const login = (password: string, username: string) => {
     debugger
     return instance.post(`api/login/`, {
-        "client_id": hassUrl,
+        "client_id": "https://iconekt-api.idin.tech/",
         "password": password,
         "username": "user",
         "nationalID": JSON.parse(localStorage.getItem("userData") as string)[2]
@@ -29,15 +29,14 @@ export const getToken = (form_data: FormData) => {
 
 export const logout = () => {
     const form_data = new FormData()
-    form_data.append("action", 'revoke')
     // @ts-ignore
     form_data.append("token", String(JSON.parse(localStorage.getItem('hassToken')).refresh_token))
-    return instance.post('auth/token', form_data)
+    return instance.post('api/token', form_data)
 }
 
 export const signUp = (name: string, username: string, password: string) => {
     return instance.post('api/register/', {
-        "client_id": hassUrl,
+        "client_id": "https://iconekt-api.idin.tech/",
         "language": "en",
         "name": name,
         "password": password,

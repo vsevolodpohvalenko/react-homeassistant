@@ -5,19 +5,16 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import {useRef, useState} from "react";
+import {useState} from "react";
 import './register.css'
 import s from './register.module.css'
-import {Input} from '@material-ui/core';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../store/store";
-import {addEntity, addProfile, getEntity, getToken, signUp, verifyCode} from "../../api/rest/auth_api";
-import {verify} from "crypto";
+import {addProfile, signUp, verifyCode} from "../../api/rest/auth_api";
 import {actions} from "../../store/reducers/AuthReducer";
-// import {getToken, signUp} from "../../api/rest/auth_api";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -350,6 +347,7 @@ export const VerificationCode = (props: {valid: boolean, code: Array<number>, ha
 }
 
 const Register = () => {
+    const history = useHistory()
     const dispatch = useDispatch()
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
@@ -371,17 +369,19 @@ const Register = () => {
 
     const register = async (values: { password: string, username: string, name: string }) => {
         const res = await signUp(values.name, values.username, values.password)
-        const form_data = new FormData()
-        form_data.append('client_id', 'http://localhost:3000/')
-        form_data.append('code', res.data.auth_code)
-        form_data.append('grant_type', 'authorization_code')
         localStorage.setItem('hassToken', JSON.stringify(res.data))
-        const entities = await getEntity()
-        const addedEntity = await addEntity(entities.data.entry_id)
+        history.push("/")
     }
+    //     const form_data = new FormData()
+    //     form_data.append('client_id', 'https://iconekt-api.idin.tech/')
+    //     form_data.append('code', res.data.auth_code)
+    //     form_data.append('grant_type', 'authorization_code')
+    //     localStorage.setItem('hassToken', JSON.stringify(res.data))
+    //     const entities = await getEntity()
+    //     const addedEntity = await addEntity(entities.data.entry_id)
+    // }
 
     const handleNext = async (last?: boolean, send?: boolean) => {
-        debugger
 
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         if (last) {
@@ -391,7 +391,6 @@ const Register = () => {
         } else if (send){
             localStorage.setItem("userData", JSON.stringify([name, surname, nationIdNumber, email, phone, address, code, pin]));
             const r = await addProfile({name, surname, phone_number: phone, email_address: email, country: "Ukraine", address, nationalIdNumber: nationIdNumber})
-            debugger
             dispatch(actions.setCFV(r.data.code))
         }
     };
