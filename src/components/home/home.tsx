@@ -17,14 +17,13 @@ import humidityIcon from "../../assets/iconsIcoHumidity.svg"
 import lightIcon from "../../assets/lightIcon.svg"
 import axios from "axios";
 import {Redirect, useHistory} from "react-router-dom";
-
-export const ws = new WebSocket('wss://iconekt-api.idin.tech/api/websocket');
+const port = JSON.parse(localStorage.getItem("userData") as string)?.url || 0
+export const ws = new WebSocket(`wss://iconekt-api.idin.tech:${port}/api/websocket`);
 const today = new Date();
 
 const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 
 const Home = () => {
-
 
     const history = useHistory()
     const [house, setHouse] = useState(false)
@@ -33,7 +32,7 @@ const Home = () => {
     const [expandedMasterBedRoom, setExpandedMasterBed] = useState(false)
 
     if (localStorage.getItem("conf")){
-        axios.post("https://django-auth-service.herokuapp.com/api/core-config", {access_token : JSON.parse(localStorage.getItem("hassToken") as string)?.access_token})
+        axios.post("https://django-auth-service.herokuapp.com/api/core-config", {port: JSON.parse(localStorage.getItem("userData") as string)?.url, access_token : JSON.parse(localStorage.getItem("hassToken") as string)?.access_token})
     }
 
     const RoomBlock = (props: { trigger: any, name: string, icon: any, setter: (value: boolean) => void, path: string }) =>
@@ -175,12 +174,12 @@ const Home = () => {
     }
 
 
-    return !localStorage.getItem("hassToken") ? <Redirect to={"/login"}/> : <GeneralTemplate>
+    return !localStorage.getItem("hassToken") ? <Redirect to={"/register"}/> : <GeneralTemplate>
         <div className={s.container}>
 
             <div className={[s.homeContainer].join(" ")}>
                 <div className={s.greetings}>
-                    <h1>Hello { JSON.parse(localStorage.getItem("userData") as string)[0] || "Christopher"}!</h1><small>{String(today.getDate()).padStart(2, '0')} {monthNames[(today.getMonth())]} {today.getFullYear()}</small>
+                    <h1>Hello { JSON.parse(localStorage.getItem("userData") as string)?.name || "Christopher"}!</h1><small>{String(today.getDate()).padStart(2, '0')} {monthNames[(today.getMonth())]} {today.getFullYear()}</small>
                 </div>
                 <div className={s.data_container}>
                     <div className={s.temperature}>{weather?.attributes ? String(weather?.attributes.temperature).slice(0, 2) : 27}°C</div>

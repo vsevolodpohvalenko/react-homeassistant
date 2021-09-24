@@ -16,7 +16,7 @@ export const GeneralTemplate = (props:any) => {
         <div className={s.header}>
             <div className={s.headerContentTriple}>
                 <div className={s.muiIcon}><MenuIcon onClick={openSideBar} className={s.arrowIcon}/></div>
-            <h3>{(window.location.pathname.length > 2 && window.location.pathname.slice(1)[0].toUpperCase() + window.location.pathname.slice(2)) || `${JSON.parse(localStorage.getItem("userData") as string)[0] || "Christopher"}'s Home`}</h3>
+            <h3>{(window.location.pathname.length > 2 && window.location.pathname.slice(1)[0].toUpperCase() + window.location.pathname.slice(2)) || `${JSON.parse(localStorage.getItem("userData") as string)?.name || "Christopher"}'s Home`}</h3>
             <div/>
             </div>
         </div>

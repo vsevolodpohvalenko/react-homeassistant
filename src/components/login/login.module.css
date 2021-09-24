@@ -1,4 +1,6 @@
-
+.disabled{
+    display: none;
+}
 
 .login_container{
     z-index: 2;
@@ -11,7 +13,7 @@
     border-radius: 16pt 16pt 0 0;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 24pt 60pt 1fr;
+    grid-template-rows: 1fr 1fr 24pt 60pt 1fr 1fr;
 }
 .pin{
     margin-top: 64pt;
@@ -111,4 +113,24 @@
     height: 25vh;
     background-image: url("../../assets/background/bluePattern01@3x.jpg");
     background-size: cover;
+}
+
+.background{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+
+.newProfile{
+    position: relative;
+}
+
+.newProfile p{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
 }

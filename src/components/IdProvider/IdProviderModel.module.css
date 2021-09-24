@@ -1,0 +1,50 @@
+.modalContainer{
+    position: fixed;
+    width: 94vw;
+    height: 35vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 4;
+    border-radius: 16pt;
+    box-shadow: 0 1pt 3pt 0 rgba(0,0,0,0.1), 0 2pt 1pt -1pt rgba(0,0,0,0.06), 0 1pt 1pt 0 rgba(0,0,0,0.07);
+}
+
+.header{
+    width: 100%;
+    border-radius: 16pt 16pt 0 0;
+    height: 30%;
+    background-color: rgb(9, 2, 83);
+}
+
+.title{
+    padding-top: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+}
+
+.description{
+    padding-top: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.inputBlock{
+    padding-top: 30px;
+}
+
+.label{
+    top: 37pt!important;
+}
+
+.NaN,
+.NaN:focus{
+    border-bottom: 2px red solid!important;
+}
+
+.NaNLabel, .NaNLabel:focus{
+    color: red!important;
+}

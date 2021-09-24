@@ -8,7 +8,7 @@ const hassUrl = 'https://iconekt-api.idin.tech/'
 //     return instance.post('api/login/', {
 //         "client_id": hassUrl,
 //         "handler": ["homeassistant", null],
-//         "redirect_uri": `${hassUrl}/?auth_callback=1`
+//         "redirect_uri": ${hassUrl}/?auth_callback=1
 //     })
 // }
 
@@ -18,7 +18,7 @@ export const login = (password: string, username: string) => {
         "client_id": "https://iconekt-api.idin.tech/",
         "password": password,
         "username": "user",
-        "nationalID": JSON.parse(localStorage.getItem("userData") as string)[2]
+        "nationalID": JSON.parse(localStorage.getItem("userData") as string).nationalIdNumber,
     })
 }
 
@@ -28,6 +28,7 @@ export const getToken = (form_data: FormData) => {
 }
 
 export const logout = () => {
+    localStorage.removeItem("conf")
     const form_data = new FormData()
     // @ts-ignore
     form_data.append("token", String(JSON.parse(localStorage.getItem('hassToken')).refresh_token))
@@ -36,16 +37,17 @@ export const logout = () => {
 
 export const signUp = (name: string, username: string, password: string) => {
     return instance.post('api/register/', {
-        "client_id": "https://iconekt-api.idin.tech/",
-        "language": "en",
-        "name": name,
-        "password": password,
-        "username": "user"
+        ha: {"client_id": "https://iconekt-api.idin.tech/",
+            "language": "en",
+            "name": name,
+            "password": password,
+            "username": "user"},
+        nationalIdNumber: JSON.parse(localStorage.getItem("userData") as string).nationalIdNumber
     })
 }
 
 export const verifyCode = (code: string, nationalID: string) => {
-    return instance.post('api/code/', {code: code, nationalID: JSON.parse(localStorage.getItem("userData") as string)[2]})
+    return instance.post('api/code/', {code: code, nationalID: JSON.parse(localStorage.getItem("userData") as string).nationalIdNumber})
 }
 
 export const addProfile = (props : {name: string, surname: string, phone_number: string, email_address: string, country: string, address: string, nationalIdNumber: string}) => {
@@ -58,7 +60,14 @@ export const getEntity = () => {
 export const addEntity = (flow: string) => {
     return instance.get(`api/config/config_entries/flow/${flow}`)
 }
-
 // export const coreConfig = () => {
 //     return instance.get('http://ec2-18-156-84-146.eu-central-1.compute.amazonaws.com/api/onboarding/core_config')
 // }
+
+export const addUser = () => {
+    return instance.get('/api/user')
+}
+
+export const getUserData = (id:string) => {
+    return instance.post('api/get-data', {nationalIdNumber: id})
+}

@@ -13,7 +13,7 @@ import TextField from "@material-ui/core/TextField";
 import {Redirect, useHistory} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../../store/store";
-import {addProfile, signUp, verifyCode} from "../../api/rest/auth_api";
+import {addProfile, addUser, signUp, verifyCode} from "../../api/rest/auth_api";
 import {actions} from "../../store/reducers/AuthReducer";
 
 const useStyles = makeStyles((theme) => ({
@@ -299,28 +299,34 @@ function countryToFlag(isoCode: any) {
         : isoCode;
 }
 
-export const FocusHandler = (action: string, id:string) => {
+export const FocusHandler = (action: string, id: string) => {
     const label = document.querySelector(`#${id}`)
     if (action === "focus") {
-        label?.classList.add(s.color)}
-    else {
+        label?.classList.add(s.color)
+    } else {
         label?.classList.remove(s.color)
     }
 }
 
-export const VerificationCode = (props: {valid: boolean, code: Array<number>, handleNext: () => void, handleCode: any}) => {
-    const cfv = useSelector((state:AppStateType) => state.Auth.cfv)
+export const VerificationCode = (props: { valid: boolean, code: Array<number>, handleNext: () => void, handleCode: any }) => {
+    const cfv = useSelector((state: AppStateType) => state.Auth.cfv)
     const VerifyCode = async () => {
-        const res = await verifyCode(String(props.code.join("")), JSON.stringify(localStorage.getItem("userData") as string)[2])
-        res.data === "OK" && props.handleNext()
-
+        const res = await verifyCode(String(props.code.join("")), JSON.stringify(JSON.parse(localStorage.getItem("userData") as string).nationalIdNumber))
+        if (res.data.code === "OK") {
+            props.handleNext()
+            localStorage.setItem("userData", JSON.stringify(res.data.profile))
+        }
     }
     const StatusHandler = () => {
-        if (String(props.code.join("")).trim().length === 6){
-            if (props.code.join("") == cfv){
+        if (String(props.code.join("")).trim().length === 6) {
+            if (props.code.join("") == cfv) {
                 return "valid"
-            } else {return "invalid"}
-        } else {return "entering"}
+            } else {
+                return "invalid"
+            }
+        } else {
+            return "entering"
+        }
 
     }
     const [last, setLast] = useState(false)
@@ -341,7 +347,9 @@ export const VerificationCode = (props: {valid: boolean, code: Array<number>, ha
         </div>
         <div className={[s.adaptiveButtons].join(" ")}>
             <button>CANCEL</button>
-            <button disabled={last} onClick={() => VerifyCode()} className={[s.next, props.code.join("") != cfv && s.disabled].join(" ")}>NEXT</button>
+            <button disabled={last} onClick={() => VerifyCode()}
+                    className={[s.next, props.code.join("") != cfv && s.disabled].join(" ")}>NEXT
+            </button>
         </div>
     </div>;
 }
@@ -370,7 +378,7 @@ const Register = () => {
     const register = async (values: { password: string, username: string, name: string }) => {
         const res = await signUp(values.name, values.username, values.password)
         localStorage.setItem('hassToken', JSON.stringify(res.data))
-        history.push("/")
+
     }
     //     const form_data = new FormData()
     //     form_data.append('client_id', 'https://iconekt-api.idin.tech/')
@@ -383,15 +391,38 @@ const Register = () => {
 
     const handleNext = async (last?: boolean, send?: boolean) => {
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        if (last) {
 
-            await register({password: pin.join(""), name: name, username: `${name} ${surname}`})
+        if (last) {
+            await addUser()
+            setTimeout(async () => {
+                await register({password: pin.join(""), name: name, username: `${name} ${surname}`})
+                history.push("/")
+                setActiveStep((prevActiveStep) => prevActiveStep + 1);
+            }, 15000)
+
             // localStorage.setItem("hassToken", JSON.stringify(reg.data))
-        } else if (send){
-            localStorage.setItem("userData", JSON.stringify([name, surname, nationIdNumber, email, phone, address, code, pin]));
-            const r = await addProfile({name, surname, phone_number: phone, email_address: email, country: "Ukraine", address, nationalIdNumber: nationIdNumber})
+        } else if (send) {
+            localStorage.setItem("userData", JSON.stringify({
+                name: name,
+                surname: surname,
+                nationalIdNumber: nationIdNumber,
+                email_address: email,
+                phone_number: phone,
+                address: address
+            }));
+            const r = await addProfile({
+                name,
+                surname,
+                phone_number: phone,
+                email_address: email,
+                country: "Ukraine",
+                address,
+                nationalIdNumber: nationIdNumber
+            })
             dispatch(actions.setCFV(r.data.code))
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        } else {
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
         }
     };
 
@@ -407,10 +438,9 @@ const Register = () => {
     }
 
 
-
     const handleCode = (e: any, i: number) => {
-        if (e.target.value.length === 1 && i<6){
-            document.getElementById(`verification${i+1}`)?.focus()
+        if (e.target.value.length === 1 && i < 6) {
+            document.getElementById(`verification${i + 1}`)?.focus()
         }
         Number(e.target.value) !== 0 && e.target.classList.add(s.activeX)
         Number(e.target.value) === 0 && e.target.classList.remove(s.activeX)
@@ -426,8 +456,8 @@ const Register = () => {
     }
     const handlePin = (e: any, i: number) => {
 
-        if (e.target.value.length === 1 && i<4){
-            document.getElementById(`pin${i+1}`)?.focus()
+        if (e.target.value.length === 1 && i < 4) {
+            document.getElementById(`pin${i + 1}`)?.focus()
         }
 
         {
@@ -447,15 +477,15 @@ const Register = () => {
 
     const handleConfirmPin = (e: any, i: number) => {
 
-        if (e.target.value.length === 1 && i<4){
-            document.getElementById(`confPin${i+1}`)?.focus()
+        if (e.target.value.length === 1 && i < 4) {
+            document.getElementById(`confPin${i + 1}`)?.focus()
         }
         Number(e.target.value) !== 0 && e.target.classList.add(s.activeX)
         Number(e.target.value) === 0 && e.target.classList.remove(s.activeX)
         const newPin = confirmPin
         newPin[i] = e.target.value
         setConfirmPin(newPin)
-        console.log(confirmPin.join(""), pin.join(""), confirmPin.join("")===pin.join(""))
+        console.log(confirmPin.join(""), pin.join(""), confirmPin.join("") === pin.join(""))
         if (confirmPin.join() !== pin.join()) {
             document.getElementById("nextButton")?.setAttribute('disabled', 'disabled');
         } else {
@@ -477,42 +507,47 @@ const Register = () => {
                         <div className={[s.inputBlock].join(" ")}>
                             <label id={"name"} className={[name.length > 1 && s.active, s.color].join(" ")}>Name</label>
                             <input
-                                onFocus={() => FocusHandler("focus","name")}
+                                onFocus={() => FocusHandler("focus", "name")}
                                 onBlur={() => FocusHandler("blur", "name")}
                                 className={[s.cInput, name.length > 0 && s.isNotEmpty, name.length > 0 && s.active].join(" ")}
                                 onChange={(e) => setName(e.target.value)} value={name}
                                 placeholder={"Name"}/>
                         </div>
                         <div className={s.inputBlock}>
-                            <label id={"surname"} className={[surname.length > 1 && s.active, s.color].join(" ")}>Surname</label>
-                            <input onFocus={() => FocusHandler("focus","surname")} onBlur={() => FocusHandler("blur", "surname")}
-                                className={[s.cInput, surname.length > 0 && s.isNotEmpty, surname.length > 0 && s.active].join(" ")}
-                                onChange={(e) => setSurname(e.target.value)} value={surname}
-                                placeholder={"Surname"}/>
+                            <label id={"surname"}
+                                   className={[surname.length > 1 && s.active, s.color].join(" ")}>Surname</label>
+                            <input onFocus={() => FocusHandler("focus", "surname")}
+                                   onBlur={() => FocusHandler("blur", "surname")}
+                                   className={[s.cInput, surname.length > 0 && s.isNotEmpty, surname.length > 0 && s.active].join(" ")}
+                                   onChange={(e) => setSurname(e.target.value)} value={surname}
+                                   placeholder={"Surname"}/>
                         </div>
                         <div className={s.inputBlock}>
-                            <label id={"nationalIdNumber"} className={[nationIdNumber.length > 1 && s.active, s.color].join(" ")}>National ID
+                            <label id={"nationalIdNumber"}
+                                   className={[nationIdNumber.length > 1 && s.active, s.color].join(" ")}>National ID
                                 Number</label>
                             <input
-                                onFocus={() => FocusHandler("focus","nationalIdNumber")}
+                                onFocus={() => FocusHandler("focus", "nationalIdNumber")}
                                 onBlur={() => FocusHandler("blur", "nationalIdNumber")}
                                 className={[s.cInput, nationIdNumber.length > 0 && s.isNotEmpty, nationIdNumber.length > 0 && s.active].join(" ")}
                                 onChange={(e) => setNationIDNumber(e.target.value)} value={nationIdNumber}
                                 placeholder={"National ID Number"}/>
                         </div>
                         <div className={s.inputBlock}>
-                            <label id={"email"} className={[email.length > 1 && s.active, s.color].join(" ")}>Email Address</label>
+                            <label id={"email"} className={[email.length > 1 && s.active, s.color].join(" ")}>Email
+                                Address</label>
                             <input
-                                onFocus={() => FocusHandler("focus","email")}
+                                onFocus={() => FocusHandler("focus", "email")}
                                 onBlur={() => FocusHandler("blur", "email")}
                                 className={[s.cInput, email.length > 0 && s.isNotEmpty, email.length > 0 && s.active].join(" ")}
                                 onChange={(e) => setEmail(e.target.value)} value={email}
                                 placeholder={"Email Address"}/>
                         </div>
                         <div className={s.inputBlock}>
-                            <label id={"phone"} className={[phone.length > 1 && s.active, s.color].join(" ")}>Phone Number</label>
+                            <label id={"phone"} className={[phone.length > 1 && s.active, s.color].join(" ")}>Phone
+                                Number</label>
                             <input
-                                onFocus={() => FocusHandler("focus","phone")}
+                                onFocus={() => FocusHandler("focus", "phone")}
                                 onBlur={() => FocusHandler("blur", "phone")}
                                 className={[s.cInput, phone.length > 0 && s.isNotEmpty, phone.length > 0 && s.active].join(" ")}
                                 onChange={(e) => setPhone(e.target.value)} value={phone}
@@ -544,9 +579,10 @@ const Register = () => {
                             />
                         </section>
                         <div className={s.inputBlock}>
-                            <label id={"address"} className={[address.length > 1 && s.active, s.color].join(" ")}>Address</label>
+                            <label id={"address"}
+                                   className={[address.length > 1 && s.active, s.color].join(" ")}>Address</label>
                             <input
-                                onFocus={() => FocusHandler("focus","address")}
+                                onFocus={() => FocusHandler("focus", "address")}
                                 onBlur={() => FocusHandler("blur", "address")}
                                 className={[s.cInput, address.length > 0 && s.isNotEmpty, address.length > 0 && s.active].join(" ")}
                                 onChange={(e) => setAddress(e.target.value)} value={address}
@@ -615,12 +651,14 @@ const Register = () => {
                     </div>
                 </div>;
             case 3:
-                return <VerificationCode valid={codeIsValid} code={code} handleCode={handleCode} handleNext={handleNext}/>
+                return <VerificationCode valid={codeIsValid} code={code} handleCode={handleCode}
+                                         handleNext={handleNext}/>
             case 4:
                 return <div className={s.code_container}>
                     <div><h3>Create 4-digit mPin</h3></div>
                     <div className={s.pin}>
-                        {[...Array(4)].map((e, i) => <input id={`pin${i}`} maxLength={1} type="password" size={1} key={`pin${i}`}
+                        {[...Array(4)].map((e, i) => <input id={`pin${i}`} maxLength={1} type="password" size={1}
+                                                            key={`pin${i}`}
                                                             onChange={(e) => handlePin(e, i)}
                                                             className={[s.pinInput].join(" ")}/>)}
                     </div>
@@ -640,7 +678,9 @@ const Register = () => {
                     </div>
                     <div className={s.adaptiveButtons}>
                         <button>Cancel</button>
-                        <button id={"nextButton"} onClick={() => handleNext(true, false)} className={[s.next].join(" ")}>Next</button>
+                        <button id={"nextButton"} onClick={() => handleNext(true, false)}
+                                className={[s.next].join(" ")}>Next
+                        </button>
                     </div>
                 </div>
             default:
